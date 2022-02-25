@@ -60,7 +60,7 @@ struct AwardCardView: View {
     )
     .background(Color.white)
     .saturation(award.awarded ? 1.0 : 0.0)
-    .opacity(award.awarded ? 1.0 : 0.8)
+    .opacity(award.awarded ? 1.0 : 0.5)
     .clipShape(RoundedRectangle(cornerRadius: 25.0))
   }
 }
