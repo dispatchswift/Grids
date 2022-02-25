@@ -48,30 +48,49 @@ struct AwardCardView: View {
     .padding(10.0)
     .background(
       LinearGradient(
-        gradient: Gradient(
-          colors: [Color.white, Color(red: 0.0, green: 0.5, blue: 1.0)]
-        ),
-        startPoint: .bottomLeading,
-        endPoint: .topTrailing)
+				gradient: Gradient(
+					colors: [
+						Color.white,
+						Color(red: 0.0, green: 0.4, blue: 1.0)
+					]
+				),
+				startPoint: .bottomLeading,
+				endPoint: .topTrailing
+			)
     )
     .background(Color.white)
     .saturation(award.awarded ? 1.0 : 0.0)
-    .opacity(award.awarded ? 1.0 : 0.3)
+    .opacity(award.awarded ? 1.0 : 0.8)
     .clipShape(RoundedRectangle(cornerRadius: 25.0))
   }
 }
 
 struct AwardCardView_Previews: PreviewProvider {
   static var previews: some View {
-    let award = AwardInformation(
+    let award1 = AwardInformation(
       imageName: "first-visit-award",
       title: "First Visit",
       description: "Awarded the first time you open the app while at the airport.",
       awarded: true
     )
-    AwardCardView(award: award)
+		
+		let award2 = AwardInformation(
+			imageName: "first-visit-award",
+			title: "First Visit",
+			description: "Awarded the first time you open the app while at the airport.",
+			awarded: false
+		)
+		
+		AwardCardView(award: award1)
       .frame(width: 150, height: 220)
-      .padding()
+			.padding()
       .background(Color.black)
+			.previewLayout(.sizeThatFits)
+		
+		AwardCardView(award: award2)
+			.frame(width: 150, height: 220)
+			.padding()
+			.background(Color.black)
+			.previewLayout(.sizeThatFits)
   }
 }
